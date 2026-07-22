@@ -3,316 +3,291 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Mã 25% - Chuyển đổi Link Shopee Affiliate</title>
+<title>Mã 25% - Chuyển đổi Link Shopee</title>
 
-    <meta name="description"
-        content="Công cụ chuyển đổi link Shopee Affiliate nhanh chóng, miễn phí và dễ sử dụng.">
+<meta name="theme-color" content="#ee4d2d">
 
-    <meta name="keywords"
-        content="Shopee Affiliate, Shopee, Affiliate Link">
+<link rel="icon" href="assets/favicon.ico">
 
-    <meta name="theme-color"
-        content="#ee4d2d">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="icon"
-        href="assets/favicon.ico">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Google Font -->
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet"
-        href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="bg-gradient"></div>
+<!-- HEADER -->
 
-<div class="container py-5">
+<header class="topbar">
 
-<div class="row justify-content-center">
+<div class="container-mini">
 
-<div class="col-lg-12">
+<div class="brand">
 
-<!-- Logo -->
+<img src="assets/logo.png" alt="logo">
 
-<div class="text-center mb-3">
-
-<div class="logo-circle">
-
-<img src="assets/logo.png"
-class="logo-img"
-alt="Shopee">
+<span>MÃ 25%</span>
 
 </div>
 
-<h1 class="mt-3 fw-bold">
+</div>
 
-Mã 25%
+</header>
 
-</h1>
+<!-- CONTENT -->
 
-<p class="text-secondary">
+<div class="container-mini">
 
-Chuyển đổi để nhận các voucher Shopee nhanh nhất.
+<!-- CARD -->
 
-</p>
+<div class="main-card">
+
+<div class="step-title">
+
+BƯỚC 1 · DÁN LINK
 
 </div>
 
-<!-- Converter -->
-
-<div class="card">
-
-<div class="card-body">
-
-<h4 class="fw-bold mb-4">
-
-Chuyển đổi Link
-
-</h4>
-
-<div class="mb-3">
-
-<label class="form-label">
+<h3>
 
 Link sản phẩm Shopee
 
-</label>
+</h3>
 
-<div class="input-group input-group-lg">
+<p class="step-desc">
 
-<span class="input-group-text">
+Dán link Shopee, hệ thống sẽ tự chuyển đổi.
 
-<i class="bi bi-link-45deg"></i>
+</p>
+<div class="input-box">
 
-</span>
+    <input
+        type="text"
+        id="link"
+        class="form-control custom-input"
+        placeholder="https://s.shopee.vn/...">
 
-<input
+    <button
+        class="copy-icon"
+        type="button"
+        onclick="pasteClipboard()">
 
-type="text"
+        <i class="bi bi-clipboard"></i>
 
-class="form-control input-link"
-
-id="link"
-
-placeholder="https://shopee.vn/...">
-
-</div>
+    </button>
 
 </div>
 
 <button
+    class="btn btn-convert"
+    onclick="createLink()">
 
-class="btn btn-shopee btn-lg w-100"
-
-onclick="createLink()">
-
-<i class="bi bi-arrow-repeat"></i>
-
-Chuyển đổi ngay
+    CHUYỂN ĐỔI LINK
 
 </button>
 
-<div
-
-id="loading"
-
-class="text-center mt-4 d-none">
+<!-- Loading -->
 
 <div
+    id="loading"
+    class="loading-box"
+    style="display:none;">
 
-class="spinner-border text-danger"
+    <div class="spinner-border text-danger"></div>
 
-role="status">
-
-</div>
-
-<p class="mt-3 mb-0">
-
-Đang chuyển đổi...
-
-</p>
+    <p>Đang chuyển đổi...</p>
 
 </div>
 
-</div>
-
-</div>
 <!-- Result -->
 
-<div class="card mt-3">
-    <div class="card-body">
+<div
+    id="resultBox"
+    class="result-box"
+    style="display:none;">
 
-        <h4 class="fw-bold mb-3">
+    <label class="result-title">
 
-            Kết quả
+        Affiliate Link
 
-        </h4>
+    </label>
 
-        <textarea
+    <textarea
+        id="result"
+        rows="2"
+        readonly
+        class="form-control"></textarea>
 
-            id="result"
+    <div class="result-btn">
 
-            class="form-control"
+        <button
+            class="btn btn-copy"
+            onclick="copyLink()">
 
-            rows="2"
+            <i class="bi bi-clipboard"></i>
 
-            readonly
+            Copy
 
-            placeholder="Affiliate Link sẽ hiển thị tại đây...">
+        </button>
 
-        </textarea>
+        <button
+            class="btn btn-buy"
+            onclick="openLink()">
 
-        <div class="row mt-3 g-2">
+            <i class="bi bi-bag-check"></i>
 
-            <div class="col-6">
+            Mua ngay
 
-                <button
-
-                    class="btn btn-outline-secondary w-100"
-
-                    onclick="copyLink()">
-
-                    <i class="bi bi-clipboard"></i>
-
-                    Copy
-
-                </button>
-
-            </div>
-
-            <div class="col-6">
-
-                <button
-
-                    class="btn btn-success w-100"
-
-                    onclick="openLink()">
-
-                    <i class="bi bi-bag-check"></i>
-
-                    Mua ngay
-
-                </button>
-
-            </div>
-
-        </div>
+        </button>
 
     </div>
 
 </div>
 
-<!-- Hướng dẫn -->
+</div>
 
-<div class="card mt-4">
+<!-- GUIDE CARD -->
 
-    <div class="card-body">
+<div class="guide-card">
 
-        <h5 class="fw-bold mb-3">
+    <div
+        class="guide-header"
+        onclick="toggleGuide()">
 
-            <i class="bi bi-info-circle-fill text-primary"></i>
+        <div>
 
-            Hướng dẫn sử dụng
+            <h4>
 
-        </h5>
+                👉 Hướng dẫn áp mã
 
-        <div class="guide-list">
+            </h4>
 
-            <div class="guide-item">
+            <small>
 
-                <span class="guide-number">1</span>
+                Chỉ 3 bước đơn giản
 
-                <span>Dán link sản phẩm Shopee.</span>
-
-            </div>
-
-            <div class="guide-item">
-
-                <span class="guide-number">2</span>
-
-                <span>Nhấn <strong>Chuyển đổi ngay</strong>.</span>
-
-            </div>
-
-            <div class="guide-item">
-
-                <span class="guide-number">3</span>
-
-                <span>Copy link và chia sẻ.</span>
-
-            </div>
+            </small>
 
         </div>
+
+        <button
+            id="guideArrow"
+            class="guide-arrow">
+
+            ▼
+
+        </button>
+
+    </div>
+
+    <div
+        id="guideBody"
+        class="guide-body">
+        <div class="guide-step">
+
+    <div class="step-no">1</div>
+
+    <div class="step-text">
+
+        <strong>Copy link sản phẩm</strong> từ Shopee và dán vào ô phía trên. Hệ thống sẽ tự chuyển đổi.
 
     </div>
 
 </div>
 
-<!-- Footer -->
+<div class="guide-step">
 
-<footer class="text-center py-4">
-<small>© 2026 Mã 25%</small>
+    <div class="step-no">2</div>
+
+    <div class="step-text">
+
+        Nhấn <strong>"Mua ngay"</strong> để mở Shopee trong tab mới và đặt hàng với mã giảm giá.
+
+    </div>
+
+</div>
+
+<div class="guide-step">
+
+    <div class="step-no">3</div>
+
+    <div class="step-text">
+
+        Hoàn tất đơn hàng trên Shopee để nhận ưu đãi.
+
+    </div>
+
+</div>
+
+<div class="guide-warning">
+
+    <i class="bi bi-exclamation-triangle-fill"></i>
+
+    <div>
+
+        <strong>Lưu ý:</strong>
+
+        Nếu chưa thấy mã hãy quay lại sau.
+
+        <br>
+
+        <b>MÃ CÓ LẠI LÚC 0H MỖI NGÀY.</b>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+<footer class="footer-mini">
+
+    © 2026 Mã 25%
+
 </footer>
-</div>
-
-</div>
-
-</div>
 
 <!-- Toast -->
 
 <div id="toast"></div>
 
-<!-- Live Notification -->
+<!-- Live Notify -->
 
 <div id="liveNotify" class="live-notify">
 
     <div class="notify-icon">
 
-        <i class="bi bi-check-circle-fill"></i>
+        <i class="bi bi-bell"></i>
 
     </div>
 
     <div class="notify-content">
 
         <div class="notify-title">
-    <span id="notifyName"></span> vừa sử dụng voucher 25%
-</div>
 
-<small id="notifyTime"></small>
+            <span id="notifyName"></span>
+
+            vừa cài app săn mã <b>25%</b>
+
+        </div>
+
+        <small id="notifyTime"></small>
 
     </div>
 
 </div>
 
-<!-- Bootstrap -->
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Script -->
 
 <script src="script.js"></script>
 

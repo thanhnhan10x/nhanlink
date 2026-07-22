@@ -1,27 +1,25 @@
-/* =====================================
-   NHANLINK V3
-===================================== */
+/* ===========================
+   MÃ 25% - STYLE V3
+=========================== */
 
 :root{
 
     --primary:#ee4d2d;
-    --primary-hover:#d73211;
+    --primary-hover:#e03d1a;
 
-    --success:#16a34a;
+    --bg:#f4f6fa;
 
-    --bg:#f5f7fb;
+    --card:#ffffff;
 
-    --white:#fff;
+    --text:#1f2937;
 
-    --text:#202124;
+    --muted:#6b7280;
 
-    --gray:#666;
-
-    --border:#e8e8e8;
+    --border:#e5e7eb;
 
     --radius:22px;
 
-    --shadow:0 15px 35px rgba(0,0,0,.08);
+    --shadow:0 10px 35px rgba(0,0,0,.08);
 
 }
 
@@ -35,12 +33,6 @@
 
 }
 
-html{
-
-    scroll-behavior:smooth;
-
-}
-
 body{
 
     font-family:'Be Vietnam Pro',sans-serif;
@@ -49,143 +41,63 @@ body{
 
     color:var(--text);
 
-    overflow-x:hidden;
+    min-height:100vh;
 
 }
 
-/* Background */
+/* ===========================
+   Header
+=========================== */
 
-.bg-gradient{
+.topbar{
 
-    position:fixed;
+    background:#fff;
 
-    inset:0;
+    border-bottom:1px solid #ececec;
 
-    z-index:-1;
-
-    background:
-
-    radial-gradient(circle at top left,#ffe8dc 0%,transparent 40%),
-
-    radial-gradient(circle at bottom right,#fff1d5 0%,transparent 40%),
-
-    #f5f7fb;
+    padding:14px 0;
 
 }
 
-/* Container */
+.container-mini{
 
-.container{
+    width:100%;
 
-    max-width:620px;
-
-}
-
-/* Logo */
-
-.logo-circle{
-
-    width:58px;
-    height:58px;
+    max-width:560px;
 
     margin:auto;
 
-}
-
-.logo-img{
-
-    width:38px;
-    height:38px;
-
-}
-@media (max-width:576px){
-
-    .logo-circle{
-        width:70px;
-        height:70px;
-    }
-
-    .logo-img{
-        width:42px;
-        height:42px;
-    }
+    padding:0 16px;
 
 }
 
-/* Card */
+.brand{
 
-.card{
+    display:flex;
 
-    border-radius:22px;
+    align-items:center;
 
-}
+    justify-content:center;
 
-.card-body{
+    gap:10px;
 
-    padding:28px;
+    font-weight:700;
 
-}
-
-/* Form */
-
-.form-label{
-
-    font-weight:300;
+    font-size:28px;
 
 }
 
-.input-group-lg>.form-control{
+.brand img{
 
-    height:54px;
+    width:42px;
 
-    font-size:15px;
+    height:42px;
 
-}
-
-.input-group-text{
-
-    height:54px;
+    object-fit:contain;
 
 }
 
-.form-control{
-
-    border-color:var(--border);
-
-    padding:13px 15px;
-
-    font-size:14px;
-
-    box-shadow:none!important;
-
-    transition:.3s;
-
-}
-.form-control:hover{
-
-    border-color:#ff9b84;
-
-}
-
-.form-control:focus{
-
-    border-color:var(--primary);
-
-}
-
-textarea{
-
-    resize:none;
-
-    min-height:70px;
-
-}
-
-/* Buttons */
-
-.btn-lg{
-
-    height:56px;
+.brand span{
 
     font-size:18px;
 
@@ -193,13 +105,130 @@ textarea{
 
 }
 
-.btn:hover{
+/* ===========================
+   Main Card
+=========================== */
 
-    transform:translateY(-3px);
+.main-card{
+
+    background:#fff;
+
+    margin-top:24px;
+
+    border-radius:26px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
 
 }
 
-.btn-shopee{
+.step-title{
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    margin-bottom:12px;
+
+}
+
+.main-card h3{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.step-desc{
+
+    color:var(--muted);
+
+    margin-bottom:22px;
+
+    line-height:1.6;
+
+}
+/* ===========================
+   Input
+=========================== */
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+.custom-input{
+
+    width:100%;
+
+    height:58px;
+
+    border:2px solid var(--border);
+
+    border-radius:16px;
+
+    padding:0 55px 0 18px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    box-shadow:none!important;
+
+}
+
+.custom-input:focus{
+
+    border-color:var(--primary);
+
+}
+
+.custom-input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+.copy-icon{
+
+    position:absolute;
+
+    right:8px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#fff3ef;
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.copy-icon:hover{
 
     background:var(--primary);
 
@@ -207,82 +236,256 @@ textarea{
 
 }
 
-.btn-shopee:hover{
+/* ===========================
+   Convert Button
+=========================== */
 
-    background:var(--primary-hover);
+.btn-convert{
 
-    color:#fff;
+    width:100%;
 
-}
-/* =====================================
-   RESULT
-===================================== */
+    height:56px;
 
-#result{
-
-    background:#fafafa;
-
-    border:1px solid var(--border);
+    border:none;
 
     border-radius:16px;
 
-    padding:18px;
+    background:var(--primary);
 
-    font-size:15px;
+    color:#fff;
 
-    line-height:1.7;
+    font-size:17px;
 
-}
+    font-weight:700;
 
-/* ===========================
-   Guide
-=========================== */
-
-.guide-list{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-}
-
-.guide-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:12px 16px;
-
-    border:1px solid #ececec;
-
-    border-radius:12px;
-
-    background:#fafafa;
+    letter-spacing:.3px;
 
     transition:.25s;
 
 }
 
-.guide-item:hover{
+.btn-convert:hover{
 
-    border-color:var(--primary);
+    background:var(--primary-hover);
 
-    background:#fff7f5;
+    transform:translateY(-2px);
 
 }
 
-.guide-number{
+/* ===========================
+   Loading
+=========================== */
 
-    width:30px;
+.loading-box{
 
-    height:30px;
+    text-align:center;
 
-    min-width:30px;
+    padding:20px 0;
+
+}
+
+.loading-box p{
+
+    margin-top:12px;
+
+    color:var(--muted);
+
+}
+
+/* ===========================
+   Result
+=========================== */
+
+.result-box{
+
+    margin-top:20px;
+
+}
+
+.result-title{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    display:block;
+
+}
+
+#result{
+
+    width:100%;
+
+    min-height:70px;
+
+    resize:none;
+
+    border:2px solid var(--border);
+
+    border-radius:14px;
+
+    padding:12px;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    box-shadow:none!important;
+
+}
+
+.result-btn{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:12px;
+
+}
+
+.btn-copy{
+
+    flex:1;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    border-radius:14px;
+
+    height:46px;
+
+    font-weight:600;
+
+}
+
+.btn-buy{
+
+    flex:1;
+
+    border:none;
+
+    background:#16a34a;
+
+    color:#fff;
+
+    border-radius:14px;
+
+    height:46px;
+
+    font-weight:600;
+
+}
+
+.btn-copy:hover{
+
+    background:#f5f5f5;
+
+}
+
+.btn-buy:hover{
+
+    background:#15803d;
+
+}
+/* ===========================
+   GUIDE CARD
+=========================== */
+
+.guide-card{
+
+    background:#fff;
+
+    margin-top:18px;
+
+    border-radius:24px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+.guide-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:20px 24px;
+
+    cursor:pointer;
+
+}
+
+.guide-header h4{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.guide-header small{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+.guide-arrow{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff3ef;
+
+    color:var(--primary);
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.guide-body{
+
+    padding:0 24px 24px;
+
+}
+
+.guide-step{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    margin-bottom:18px;
+
+}
+
+.step-no{
+
+    width:34px;
+
+    height:34px;
+
+    flex-shrink:0;
 
     border-radius:50%;
 
@@ -296,109 +499,174 @@ textarea{
 
     justify-content:center;
 
-    font-size:14px;
-
     font-weight:700;
-
-}
-
-.guide-item span:last-child{
 
     font-size:15px;
 
-    color:#555;
-
 }
 
-/* =====================================
-   FAQ
-===================================== */
+.step-text{
 
-.accordion{
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-}
-
-.accordion-item{
-
-    border:none;
-
-    border-bottom:1px solid #eee;
-
-}
-
-.accordion-item:last-child{
-
-    border-bottom:none;
-
-}
-
-.accordion-button{
-
-    padding:20px;
-
-    font-weight:600;
-
-    box-shadow:none!important;
-
-}
-
-.accordion-button:not(.collapsed){
-
-    background:#fff4f1;
-
-    color:var(--primary);
-
-}
-
-.accordion-body{
-
-    padding:18px 20px;
-
-    color:#666;
+    font-size:14px;
 
     line-height:1.7;
 
+    color:#444;
+
 }
 
-/* =====================================
+.step-text strong{
+
+    color:#111;
+
+}
+
+/* ===========================
+   WARNING
+=========================== */
+
+.guide-warning{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    margin-top:10px;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:#fff7db;
+
+    border:1px solid #ffe08a;
+
+}
+
+.guide-warning i{
+
+    color:#f59e0b;
+
+    font-size:22px;
+
+    margin-top:2px;
+
+}
+
+.guide-warning strong{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#92400e;
+
+}
+
+.guide-warning b{
+
+    color:#d97706;
+
+}
+
+/* ===========================
    FOOTER
-===================================== */
+=========================== */
 
-footer{
+.footer-mini{
 
-    margin-top:30px;
+    text-align:center;
+
+    color:#888;
+
+    font-size:13px;
+
+    margin:28px 0 80px;
 
 }
 
-footer .card{
+/* ===========================
+   MOBILE
+=========================== */
 
-    display:none;
+@media(max-width:576px){
+
+    .container-mini{
+
+        padding:0 14px;
+
+    }
+
+    .main-card{
+
+        padding:22px;
+
+    }
+
+    .guide-header{
+
+        padding:18px;
+
+    }
+
+    .guide-body{
+
+        padding:0 18px 18px;
+
+    }
+
+    .brand{
+
+        font-size:16px;
+
+    }
+
+    .brand img{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+    .main-card h3{
+
+        font-size:22px;
+
+    }
 
 }
+/* ===========================
+   LIVE NOTIFY
+=========================== */
 
-/* =====================================
-   TOAST
-===================================== */
-
-#toast{
+.live-notify{
 
     position:fixed;
 
-    bottom:25px;
+    left:16px;
 
-    right:25px;
+    bottom:16px;
 
-    background:#222;
+    width:250px;
 
-    color:#fff;
+    background:#fff;
 
-    padding:14px 22px;
+    border:1px solid #ececec;
 
-    border-radius:12px;
+    border-radius:16px;
+
+    padding:10px 12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
 
     opacity:0;
 
@@ -412,7 +680,7 @@ footer .card{
 
 }
 
-#toast.show{
+.live-notify.show{
 
     opacity:1;
 
@@ -422,625 +690,15 @@ footer .card{
 
 }
 
-/* =====================================
-   LOADING
-===================================== */
-
-#loading{
-
-    display:none;
-
-}
-
-.spinner-border{
-
-    width:3rem;
-
-    height:3rem;
-
-}
-
-/* =====================================
-   FADE
-===================================== */
-
-.card{
-
-    animation:fadeUp .5s ease;
-
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-/* =====================================
-   RESPONSIVE TABLET
-===================================== */
-
-@media (max-width:991px){
-
-    .container{
-        max-width:760px;
-    }
-
-    .card-body{
-        padding:30px;
-    }
-
-    h1{
-        font-size:34px;
-    }
-
-    .logo-circle{
-        width:75px;
-        height:75px;
-        font-size:34px;
-    }
-
-    .btn-lg{
-        padding:14px;
-    }
-
-    .step-box{
-        padding:18px 12px;
-    }
-
-    .step-icon{
-        font-size:30px;
-    }
-
-    .step-box h5{
-        font-size:17px;
-    }
-
-    .step-box p{
-        font-size:13px;
-    }
-
-}
-
-/* =====================================
-   RESPONSIVE MOBILE
-===================================== */
-
-@media (max-width:576px){
-
-    .container{
-
-        padding-left:16px;
-
-        padding-right:16px;
-
-    }
-
-    h1{
-
-        font-size:28px;
-
-    }
-
-    .text-secondary{
-
-        font-size:15px;
-
-    }
-
-    .card-body{
-
-        padding:22px;
-
-    }
-
-    .logo-circle{
-
-        width:65px;
-
-        height:65px;
-
-        font-size:28px;
-
-    }
-
-    .input-group-text{
-
-        padding:12px;
-
-    }
-
-    .form-control{
-
-        padding:12px;
-
-        font-size:15px;
-
-    }
-
-    textarea{
-
-        min-height:120px;
-
-    }
-
-    .btn-lg{
-
-        padding:13px;
-
-        font-size:15px;
-
-    }
-
-    /* Guide */
-
-    .step-box{
-
-        padding:14px 8px;
-
-    }
-
-    .step-number{
-
-        width:32px;
-
-        height:32px;
-
-        font-size:14px;
-
-        margin-bottom:10px;
-
-    }
-
-    .step-icon{
-
-        font-size:22px;
-
-        margin-bottom:8px;
-
-    }
-
-    .step-box h5{
-
-        font-size:14px;
-
-        margin-bottom:0;
-
-    }
-
-    .step-box p{
-
-        display:none;
-
-    }
-
-    footer{
-
-        margin-top:40px;
-
-    }
-
-    #toast{
-
-        left:15px;
-
-        right:15px;
-
-        bottom:20px;
-
-        text-align:center;
-
-    }
-
-}
-
-/* =====================================
-   LARGE DESKTOP
-===================================== */
-
-@media (min-width:1400px){
-
-    .container{
-
-        max-width:1180px;
-
-    }
-
-}
-
-/* =====================================
-   SCROLLBAR
-===================================== */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#f2f2f2;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#d5d5d5;
-
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#bdbdbd;
-
-}
-
-/* =====================================
-   TEXT SELECTION
-===================================== */
-
-::selection{
-
-    background:var(--primary);
-
-    color:#fff;
-
-}
-
-/* =====================================
-   SMOOTH
-===================================== */
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-img{
-
-    max-width:100%;
-
-    height:auto;
-
-}
-
-button{
-
-    outline:none;
-
-}
-
-textarea:focus,
-
-input:focus{
-
-    outline:none;
-
-}
-/* =====================================
-   DARK MODE (Future)
-===================================== */
-
-body.dark{
-
-    background:#121212;
-
-    color:#f5f5f5;
-
-}
-
-body.dark .bg-gradient{
-
-    background:#121212;
-
-}
-
-body.dark .card{
-
-    background:#1f1f1f;
-
-    color:#fff;
-
-}
-
-body.dark .form-control{
-
-    background:#2b2b2b;
-
-    color:#fff;
-
-    border-color:#3d3d3d;
-
-}
-
-body.dark .input-group-text{
-
-    background:#2b2b2b;
-
-    color:var(--primary);
-
-    border-color:#3d3d3d;
-
-}
-
-body.dark #result{
-
-    background:#2b2b2b;
-
-    color:#fff;
-
-}
-
-body.dark .step-box{
-
-    background:#242424;
-
-    border-color:#333;
-
-}
-
-body.dark .accordion-item{
-
-    background:#1f1f1f;
-
-}
-
-body.dark .accordion-button{
-
-    background:#1f1f1f;
-
-    color:#fff;
-
-}
-
-body.dark .accordion-button:not(.collapsed){
-
-    background:#2a2a2a;
-
-}
-
-body.dark .accordion-body{
-
-    background:#1f1f1f;
-
-    color:#d7d7d7;
-
-}
-
-body.dark footer p,
-
-body.dark footer small{
-
-    color:#bdbdbd;
-
-}
-
-/* =====================================
-   EFFECT
-===================================== */
-
-.shadow-hover{
-
-    transition:.3s;
-
-}
-
-.shadow-hover:hover{
-
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
-
-}
-
-.scale{
-
-    transition:.3s;
-
-}
-
-.scale:hover{
-
-    transform:scale(1.03);
-
-}
-
-/* =====================================
-   UTILITIES
-===================================== */
-
-.text-primary{
-
-    color:var(--primary)!important;
-
-}
-
-.bg-primary{
-
-    background:var(--primary)!important;
-
-}
-
-.rounded-xl{
-
-    border-radius:24px!important;
-
-}
-
-.cursor-pointer{
-
-    cursor:pointer;
-
-}
-
-.fw-600{
-
-    font-weight:600;
-
-}
-
-.fw-700{
-
-    font-weight:700;
-
-}
-
-/* =====================================
-   PRINT
-===================================== */
-
-@media print{
-
-    .btn,
-
-    footer,
-
-    #toast,
-
-    #loading{
-
-        display:none!important;
-
-    }
-
-    body{
-
-        background:#fff;
-
-    }
-
-    .card{
-
-        box-shadow:none!important;
-
-        border:1px solid #ddd!important;
-
-    }
-
-}
-
-/* =====================================
-   FINISH
-===================================== */
-
-a{
-
-    text-decoration:none;
-
-}
-
-img{
-
-    user-select:none;
-
-    -webkit-user-drag:none;
-
-}
-
-button{
-
-    outline:none;
-
-}
-
-input,
-
-textarea{
-
-    outline:none;
-
-}
-
-*{
-
-    -webkit-tap-highlight-color:transparent;
-
-}
-.input-link{
-
-    font-size:13px;
-
-    padding:12px 15px;
-
-}
-
-.input-link::placeholder{
-
-    font-size:12px;
-
-    color:#999;
-
-}
-/* ===== Live Notification ===== */
-
-.live-notify{
-
-    position:fixed;
-
-    left:16px;
-
-    bottom:16px;
-
-    width:280px;
-
-    background:#fff;
-
-    border:1px solid #ffe3dc;
-
-    border-radius:14px;
-
-    padding:10px 12px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-    z-index:9999;
-
-    opacity:0;
-
-    transform:translateY(30px);
-
-    transition:.4s ease;
-
-}
-
-.live-notify.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
 .notify-icon{
 
-    width:38px;
+    width:40px;
 
-    height:38px;
+    height:40px;
 
     border-radius:50%;
 
-    background:#fff2ee;
+    background:#fff3ef;
 
     color:#ee4d2d;
 
@@ -1092,11 +750,147 @@ textarea{
 
 }
 
-@media (max-width:576px){
+/* ===========================
+   TOAST
+=========================== */
+
+#toast{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    background:#222;
+
+    color:#fff;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99999;
+
+}
+
+#toast.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* ===========================
+   CARD HOVER
+=========================== */
+
+.main-card,
+.guide-card{
+
+    transition:.3s;
+
+}
+
+.main-card:hover,
+.guide-card:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+button{
+
+    transition:.25s;
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d5d5d5;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#bdbdbd;
+
+}
+
+/* ===========================
+   SELECTION
+=========================== */
+
+::selection{
+
+    background:#ee4d2d;
+
+    color:#fff;
+
+}
+
+/* ===========================
+   DESKTOP
+=========================== */
+
+@media(min-width:992px){
+
+    .container-mini{
+
+        max-width:540px;
+
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:576px){
+
+    .container-mini{
+
+        max-width:100%;
+
+        padding:0 12px;
+
+    }
 
     .live-notify{
 
-        width:240px;
+        width:220px;
 
         left:10px;
 
@@ -1106,25 +900,9 @@ textarea{
 
     }
 
-    .notify-icon{
-
-        width:34px;
-
-        height:34px;
-
-        font-size:16px;
-
-    }
-
     .notify-title{
 
         font-size:12px;
-
-    }
-
-    .notify-content small{
-
-        font-size:10px;
 
     }
 

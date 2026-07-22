@@ -1,180 +1,77 @@
-/* ==========================================
-   NHANLINK V3
-========================================== */
+// ===============================
+// NHẬP LINK
+// ===============================
 
 const input = document.getElementById("link");
 const result = document.getElementById("result");
 const loading = document.getElementById("loading");
+const resultBox = document.getElementById("resultBox");
 const toast = document.getElementById("toast");
 
-let affiliateLink = "";
+// ===============================
+// TẠO LINK
+// ===============================
 
-/* ==========================================
-   Loading
-========================================== */
+function createLink() {
 
-function showLoading() {
-    loading.classList.remove("d-none");
-}
+    const link = input.value.trim();
 
-function hideLoading() {
-    loading.classList.add("d-none");
-}
+    if (link === "") {
 
-/* ==========================================
-   Toast
-========================================== */
+        showToast("Vui lòng nhập link Shopee");
 
-function showToast(message) {
+        return;
 
-    toast.innerHTML = message;
+    }
 
-    toast.classList.add("show");
+    loading.style.display = "block";
+
+    resultBox.style.display = "none";
 
     setTimeout(() => {
 
-        toast.classList.remove("show");
+        loading.style.display = "none";
 
-    }, 2500);
+        resultBox.style.display = "block";
 
-}
+        // Demo
+        result.value = link;
 
-/* ==========================================
-   Kiểm tra link Shopee
-========================================== */
+        showToast("Chuyển đổi thành công");
 
-function isShopeeLink(url) {
-
-    const domains = [
-
-        "shopee.vn",
-
-        "shp.ee",
-
-        "vn.shp.ee"
-
-    ];
-
-    return domains.some(domain => url.includes(domain));
+    }, 1000);
 
 }
 
-/* ==========================================
-   Demo API
-   Sau này chỉ sửa hàm này
-========================================== */
+// ===============================
+// COPY
+// ===============================
 
-async function convertAffiliateLink(url) {
+function copyLink() {
 
-    return new Promise(resolve => {
+    if (result.value == "") {
 
-        setTimeout(() => {
-
-            resolve(url);
-
-        }, 1200);
-
-    });
-
-}
-
-/* ==========================================
-   Chuyển đổi
-========================================== */
-
-async function createLink() {
-
-    const url = input.value.trim();
-
-    if (url === "") {
-
-        showToast("Vui lòng nhập link Shopee.");
-
-        input.focus();
+        showToast("Chưa có link");
 
         return;
 
     }
 
-    if (!isShopeeLink(url)) {
+    navigator.clipboard.writeText(result.value);
 
-        showToast("Link không hợp lệ.");
-
-        input.focus();
-
-        return;
-
-    }
-
-    showLoading();
-
-    try {
-
-        affiliateLink = await convertAffiliateLink(url);
-
-        result.value = affiliateLink;
-
-        showToast("Tạo Affiliate Link thành công.");
-
-    }
-
-    catch (e) {
-
-        showToast("Có lỗi xảy ra.");
-
-    }
-
-    finally {
-
-        hideLoading();
-
-    }
+    showToast("Đã copy");
 
 }
 
-/* ==========================================
-   Copy
-========================================== */
-
-async function copyLink() {
-
-    if (result.value === "") {
-
-        showToast("Chưa có link.");
-
-        return;
-
-    }
-
-    try {
-
-        await navigator.clipboard.writeText(result.value);
-
-        showToast("Đã copy.");
-
-    }
-
-    catch {
-
-        result.select();
-
-        document.execCommand("copy");
-
-        showToast("Đã copy.");
-
-    }
-
-}
-
-/* ==========================================
-   Mở link
-========================================== */
+// ===============================
+// MUA NGAY
+// ===============================
 
 function openLink() {
 
-    if (result.value === "") {
+    if (result.value == "") {
 
-        showToast("Chưa có link.");
+        showToast("Chưa có link");
 
         return;
 
@@ -184,101 +81,130 @@ function openLink() {
 
 }
 
-/* ==========================================
-   Enter
-========================================== */
+// ===============================
+// PASTE
+// ===============================
 
-input.addEventListener("keydown", function(e){
+async function pasteClipboard(){
 
-    if(e.key==="Enter"){
+    try{
 
-        createLink();
+        const text = await navigator.clipboard.readText();
+
+        input.value = text;
+
+        showToast("Đã dán");
+
+    }catch{
+
+        showToast("Không đọc được Clipboard");
 
     }
 
-});
+}
 
-/* ==========================================
-   Paste
-========================================== */
+// ===============================
+// TOAST
+// ===============================
 
-input.addEventListener("paste",function(){
+function showToast(message){
+
+    toast.innerHTML = message;
+
+    toast.classList.add("show");
 
     setTimeout(()=>{
 
-        if(isShopeeLink(input.value)){
+        toast.classList.remove("show");
 
-            showToast("Đã nhận diện link Shopee.");
+    },2000);
 
-        }
+}
 
-    },200);
+// ===============================
+// GUIDE
+// ===============================
 
-});
+function toggleGuide(){
 
-/* ==========================================
-   Auto Height
-========================================== */
+    const body = document.getElementById("guideBody");
 
-result.addEventListener("input",function(){
+    const arrow = document.getElementById("guideArrow");
 
-    this.style.height="auto";
+    if(body.style.display==="none"){
 
-    this.style.height=this.scrollHeight+"px";
+        body.style.display="block";
 
-});
+        arrow.innerHTML="▲";
 
-/* ==========================================
-   Init
-========================================== */
+    }else{
 
-window.onload=function(){
+        body.style.display="none";
 
-    hideLoading();
+        arrow.innerHTML="▼";
 
-};
-const names = [
-"Lan***",
-"Nam***",
-"Hùng***",
-"Linh***",
-"Minh***",
-"Tuấn***",
-"Hải***",
-"Trang***",
-"Thảo***",
-"Vy***",
-"An***",
-"Đức***"
+    }
+
+}
+
+// ===============================
+// LIVE NOTIFY
+// ===============================
+
+const users=[
+
+"lon",
+
+"han",
+
+"thu",
+
+"nhu",
+
+"quy",
+
+"kha",
+
+"tua",
+
+"tri",
+
+"ngu",
+
+"phu",
+
+"dun",
+
+"huy"
+
 ];
 
-const times = [
-"Vừa xong",
-"10 giây trước",
-"30 giây trước",
-"1 phút trước",
-"2 phút trước",
-"5 phút trước"
-];
-
-function showNotify(){
+function liveNotify(){
 
     const box=document.getElementById("liveNotify");
 
-    document.getElementById("notifyName").innerHTML=
-        names[Math.floor(Math.random()*names.length)];
+    const name=document.getElementById("notifyName");
 
-    document.getElementById("notifyTime").innerHTML=
-        times[Math.floor(Math.random()*times.length)];
+    const time=document.getElementById("notifyTime");
+
+    const random=users[Math.floor(Math.random()*users.length)];
+
+    const second=Math.floor(Math.random()*45)+5;
+
+    name.innerHTML=random;
+
+    time.innerHTML=second+" giây trước";
 
     box.classList.add("show");
 
     setTimeout(()=>{
+
         box.classList.remove("show");
+
     },4000);
 
 }
 
-showNotify();
+setInterval(liveNotify,7000);
 
-setInterval(showNotify,7000);
+setTimeout(liveNotify,2000);
