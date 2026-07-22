@@ -84,64 +84,41 @@ body{
 /* Logo */
 
 .logo-circle{
-
     width:90px;
-
     height:90px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:linear-gradient(135deg,#ff6b3d,#ee4d2d);
+    margin:0 auto;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
+
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff6b3d,#ee4d2d);
 
     overflow:hidden;
 
     box-shadow:0 15px 35px rgba(238,77,45,.35);
-
 }
 
 .logo-img{
-
-    width:55px;
-
-    height:55px;
-
-    object-fit:contain;
-
     display:block;
 
-    margin:auto;
+    width:58px;
+    height:58px;
 
+    object-fit:contain;
 }
+@media (max-width:576px){
 
-@keyframes float{
+    .logo-circle{
+        width:70px;
+        height:70px;
+    }
 
-0%{transform:translateY(0);}
-
-50%{transform:translateY(-8px);}
-
-100%{transform:translateY(0);}
-
-}
-
-h1{
-
-    font-size:42px;
-
-    font-weight:700;
-
-}
-
-.text-secondary{
-
-    font-size:17px;
+    .logo-img{
+        width:42px;
+        height:42px;
+    }
 
 }
 
