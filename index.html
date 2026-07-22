@@ -7,16 +7,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NhanLink - Chuyển đổi Link Shopee Affiliate</title>
+    <title>Mã 25% - Chuyển đổi Link Shopee Affiliate</title>
 
     <meta name="description"
-        content="NhanLink - Công cụ chuyển đổi link Shopee Affiliate nhanh chóng, miễn phí và dễ sử dụng.">
+        content="Công cụ chuyển đổi link Shopee Affiliate nhanh chóng, miễn phí và dễ sử dụng.">
 
     <meta name="keywords"
-        content="Shopee Affiliate, Shopee, Affiliate Link, NhanLink">
-
-    <meta name="author"
-        content="NhanLink">
+        content="Shopee Affiliate, Shopee, Affiliate Link">
 
     <meta name="theme-color"
         content="#ee4d2d">
@@ -25,17 +22,14 @@
         href="assets/favicon.ico">
 
     <!-- Bootstrap -->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Font -->
-
     <link rel="preconnect"
         href="https://fonts.googleapis.com">
 
@@ -66,10 +60,14 @@
 <div class="text-center mb-5">
 
 <div class="logo-circle">
-    <img src="assets/logo.png" class="logo-img" alt="Shopee">
+
+<img src="assets/logo.png"
+class="logo-img"
+alt="Shopee">
+
 </div>
 
-<h1 class="mt-3">
+<h1 class="mt-3 fw-bold">
 
 Mã 25%
 
@@ -77,7 +75,7 @@ Mã 25%
 
 <p class="text-secondary">
 
-Chuyển đổi đê nhận các voucher nhanh nhất.
+Chuyển đổi để nhận các voucher Shopee nhanh nhất.
 
 </p>
 
@@ -91,7 +89,7 @@ Chuyển đổi đê nhận các voucher nhanh nhất.
 
 <h4 class="fw-bold mb-4">
 
-Chuyển đổi link
+Chuyển đổi Link
 
 </h4>
 
@@ -99,7 +97,7 @@ Chuyển đổi link
 
 <label class="form-label">
 
-Link sản phẩm Shoppe
+Link sản phẩm Shopee
 
 </label>
 
@@ -112,35 +110,46 @@ Link sản phẩm Shoppe
 </span>
 
 <input
-    type="text"
-    class="form-control input-link"
-    id="link"
-    placeholder="https://shopee.vn/...">
+
+type="text"
+
+class="form-control input-link"
+
+id="link"
+
+placeholder="https://shopee.vn/...">
 
 </div>
 
 </div>
 
 <button
+
 class="btn btn-shopee btn-lg w-100"
+
 onclick="createLink()">
 
 <i class="bi bi-arrow-repeat"></i>
 
-Chuyển đổi link
+Chuyển đổi ngay
 
 </button>
 
 <div
+
 id="loading"
-class="text-center mt-4">
+
+class="text-center mt-4 d-none">
 
 <div
-class="spinner-border text-danger">
+
+class="spinner-border text-danger"
+
+role="status">
 
 </div>
 
-<p class="mt-3">
+<p class="mt-3 mb-0">
 
 Đang chuyển đổi...
 
@@ -151,68 +160,72 @@ class="spinner-border text-danger">
 </div>
 
 </div>
-
 <!-- Result -->
 
 <div class="card mt-4">
 
-<div class="card-body">
+    <div class="card-body">
 
-<h4 class="fw-bold mb-3">
+        <h4 class="fw-bold mb-3">
 
-Kết quả
+            Kết quả
 
-</h4>
+        </h4>
 
-<textarea
+        <textarea
 
-id="result"
+            id="result"
 
-class="form-control"
+            class="form-control"
 
-rows="2"
+            rows="2"
 
-readonly
+            readonly
 
-placeholder="Affiliate Link sẽ xuất hiện tại đây...">
+            placeholder="Affiliate Link sẽ hiển thị tại đây...">
 
-</textarea>
+        </textarea>
 
-<div class="row mt-3 g-2">
+        <div class="row mt-3 g-2">
 
-<div class="col-md-6">
+            <div class="col-6">
 
-<button
-class="btn btn-outline-secondary w-100"
-onclick="copyLink()">
+                <button
 
-<i class="bi bi-clipboard"></i>
+                    class="btn btn-outline-secondary w-100"
 
-Copy Link
+                    onclick="copyLink()">
 
-</button>
+                    <i class="bi bi-clipboard"></i>
+
+                    Copy
+
+                </button>
+
+            </div>
+
+            <div class="col-6">
+
+                <button
+
+                    class="btn btn-success w-100"
+
+                    onclick="openLink()">
+
+                    <i class="bi bi-bag-check"></i>
+
+                    Mua ngay
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-<div class="col-md-6">
-
-<button
-class="btn btn-success w-100"
-onclick="openLink()">
-
-<i class="bi bi-bag-check"></i>
-
-Mua ngay
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 <!-- Hướng dẫn -->
 
 <div class="card mt-4">
@@ -233,7 +246,7 @@ Mua ngay
 
                 <span class="guide-number">1</span>
 
-                <span>Dán link sản phẩm Shopee vào ô nhập.</span>
+                <span>Dán link sản phẩm Shopee.</span>
 
             </div>
 
@@ -249,7 +262,7 @@ Mua ngay
 
                 <span class="guide-number">3</span>
 
-                <span>Copy Affiliate Link và chia sẻ.</span>
+                <span>Copy link và chia sẻ.</span>
 
             </div>
 
@@ -258,7 +271,6 @@ Mua ngay
     </div>
 
 </div>
-
 <!-- FAQ -->
 
 <div class="card mt-4">
@@ -278,24 +290,30 @@ Mua ngay
                 <h2 class="accordion-header">
 
                     <button
+
                         class="accordion-button"
+
                         data-bs-toggle="collapse"
+
                         data-bs-target="#faq1">
 
-                        NhanLink có miễn phí không?
+                        Mã 25% có miễn phí không?
 
                     </button>
 
                 </h2>
 
                 <div
+
                     id="faq1"
+
                     class="accordion-collapse collapse show"
+
                     data-bs-parent="#faq">
 
                     <div class="accordion-body">
 
-                        Có. NhanLink hoàn toàn miễn phí.
+                        Có. Website hoàn toàn miễn phí, không thu bất kỳ khoản phí nào.
 
                     </div>
 
@@ -308,24 +326,30 @@ Mua ngay
                 <h2 class="accordion-header">
 
                     <button
+
                         class="accordion-button collapsed"
+
                         data-bs-toggle="collapse"
+
                         data-bs-target="#faq2">
 
-                        Có cần đăng nhập không?
+                        Có cần đăng nhập tài khoản không?
 
                     </button>
 
                 </h2>
 
                 <div
+
                     id="faq2"
+
                     class="accordion-collapse collapse"
+
                     data-bs-parent="#faq">
 
                     <div class="accordion-body">
 
-                        Không cần. Chỉ cần dán link Shopee.
+                        Không cần. Chỉ cần dán link sản phẩm Shopee để chuyển đổi.
 
                     </div>
 
@@ -338,24 +362,30 @@ Mua ngay
                 <h2 class="accordion-header">
 
                     <button
+
                         class="accordion-button collapsed"
+
                         data-bs-toggle="collapse"
+
                         data-bs-target="#faq3">
 
-                        Bao giờ hoạt động thật?
+                        Bao giờ website hoạt động chính thức?
 
                     </button>
 
                 </h2>
 
                 <div
+
                     id="faq3"
+
                     class="accordion-collapse collapse"
+
                     data-bs-parent="#faq">
 
                     <div class="accordion-body">
 
-                        Sau khi tích hợp Shopee Open API.
+                        Sau khi tích hợp Shopee Open API, website sẽ chuyển đổi Affiliate Link tự động.
 
                     </div>
 
@@ -368,73 +398,62 @@ Mua ngay
     </div>
 
 </div>
+
 <!-- Footer -->
 
-<footer class="text-center mt-5">
+<footer class="mt-5">
 
     <div class="card">
 
-        <div class="card-body py-4">
+        <div class="card-body text-center">
 
-            <h5 class="fw-bold mb-2">
+            <h4 class="fw-bold mb-2">
 
-                NhanLink
+                Mã 25%
 
-            </h5>
+            </h4>
 
-            <p class="text-secondary mb-3">
+            <p class="text-secondary mb-4">
 
                 Công cụ chuyển đổi Link Shopee Affiliate nhanh chóng, miễn phí và dễ sử dụng.
 
             </p>
 
-            <div class="row text-center mb-3">
+            <div class="row text-center">
 
                 <div class="col-4">
 
-                    <h5 class="text-primary fw-bold">
+                    <h5 class="fw-bold text-primary">
 
                         100%
 
                     </h5>
 
-                    <small>
-
-                        Miễn phí
-
-                    </small>
+                    <small>Miễn phí</small>
 
                 </div>
 
                 <div class="col-4">
 
-                    <h5 class="text-primary fw-bold">
+                    <h5 class="fw-bold text-primary">
 
                         24/7
 
                     </h5>
 
-                    <small>
-
-                        Hoạt động
-
-                    </small>
+                    <small>Hoạt động</small>
 
                 </div>
 
                 <div class="col-4">
 
-                    <h5 class="text-primary fw-bold">
+                    <h5 class="fw-bold text-primary">
 
                         API
 
                     </h5>
 
-                    <small>
-
-                        Shopee Ready
-
-                    </small>
+                    <small>Shopee Ready</small>
 
                 </div>
 
@@ -444,7 +463,7 @@ Mua ngay
 
             <small class="text-muted">
 
-                © 2026 NhanLink. All Rights Reserved.
+                © 2026 Mã 25%. All Rights Reserved.
 
             </small>
 
@@ -453,7 +472,6 @@ Mua ngay
     </div>
 
 </footer>
-
 </div>
 
 </div>
@@ -464,6 +482,32 @@ Mua ngay
 
 <div id="toast"></div>
 
+<!-- Live Notification -->
+
+<div id="liveNotify" class="live-notify">
+
+    <div class="notify-icon">
+
+        <i class="bi bi-bell-fill"></i>
+
+    </div>
+
+    <div class="notify-content">
+
+        <div class="notify-title">
+
+            <span id="notifyName"></span>
+
+            vừa nhận mã giảm giá <strong>25%</strong>
+
+        </div>
+
+        <small id="notifyTime"></small>
+
+    </div>
+
+</div>
+
 <!-- Bootstrap -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
@@ -471,19 +515,7 @@ Mua ngay
 <!-- Script -->
 
 <script src="script.js"></script>
-<div id="liveNotify" class="live-notify">
-    <div class="notify-icon">
-        <i class="bi bi-bell"></i>
-    </div>
 
-    <div class="notify-content">
-        <div class="notify-title">
-            <span id="notifyName"></span> vừa cài app săn mã <b>25%</b>
-        </div>
-
-        <small id="notifyTime"></small>
-    </div>
-</div>
 </body>
 
 </html>
