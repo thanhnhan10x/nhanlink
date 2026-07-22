@@ -89,7 +89,11 @@ body{
 
     height:90px;
 
+    margin:auto;
+
     border-radius:50%;
+
+    background:linear-gradient(135deg,#ff6b3d,#ee4d2d);
 
     display:flex;
 
@@ -97,9 +101,23 @@ body{
 
     align-items:center;
 
-    background:#fff;
+    overflow:hidden;
 
-    box-shadow:0 15px 35px rgba(238,77,45,.25);
+    box-shadow:0 15px 35px rgba(238,77,45,.35);
+
+}
+
+.logo-img{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:auto;
 
 }
 
