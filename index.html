@@ -4,202 +4,152 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NhanLink - Shopee Affiliate Link Generator</title>
+    <title>NhanLink - Chuyển đổi link Shopee Affiliate</title>
 
     <meta name="description"
-        content="Chuyển đổi link Shopee thành Affiliate Link nhanh chóng và miễn phí.">
+        content="NhanLink - Công cụ chuyển đổi link Shopee Affiliate nhanh chóng, miễn phí và đơn giản.">
+
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="background"></div>
+
+    <main class="container">
 
         <!-- Logo -->
 
         <div class="logo">
 
-            <div class="logo-icon">
+            <div class="logo-icon">🔗</div>
 
-                🔗
+            <h1>NhanLink</h1>
 
-            </div>
-
-            <div class="logo-text">
-
-                NhanLink
-
-            </div>
+            <p>Chuyển đổi link Shopee Affiliate</p>
 
         </div>
 
         <!-- Card -->
 
-        <div class="card">
+        <section class="card">
 
-            <div class="step-title">
-
-                BƯỚC 1 - DÁN LINK
-
-            </div>
-
-            <h2>
-
-                Link sản phẩm Shopee
-
-            </h2>
-
-            <p class="description">
-
-                Dán link Shopee, hệ thống sẽ tự động chuyển đổi thành Affiliate Link.
-
-            </p>
+            <label>Nhập link Shopee</label>
 
             <div class="input-box">
 
-                <input
+                <input type="text"
                     id="link"
-                    type="text"
-                    placeholder="https://s.shopee.vn/...">
+                    placeholder="https://shopee.vn/...">
 
-                <button
-                    class="paste-btn"
-                    onclick="pasteClipboard()">
+            </div>
 
-                    📋
+            <button onclick="createLink()" class="btn">
+
+                Chuyển đổi ngay
+
+            </button>
+
+            <div id="loading" class="loading">
+
+                <div class="spinner"></div>
+
+                <span>Đang chuyển đổi...</span>
+
+            </div>
+
+        </section>
+
+        <!-- Result -->
+
+        <section class="result-card">
+
+            <div class="result-title">
+
+                Link Affiliate
+
+            </div>
+
+            <textarea
+                id="result"
+                readonly
+                placeholder="Link sau khi chuyển đổi sẽ hiển thị tại đây..."></textarea>
+
+            <div class="button-group">
+
+                <button class="copy-btn" onclick="copyLink()">
+
+                    Copy
+
+                </button>
+
+                <button class="open-btn" onclick="openLink()">
+
+                    Mua ngay
 
                 </button>
 
             </div>
 
-            <button
-                class="convert-btn"
-                onclick="createLink()">
-
-                CHUYỂN ĐỔI LINK
-
-            </button>
-
-            <div class="result-area">
-
-                <textarea
-                    id="result"
-                    readonly
-                    placeholder="Affiliate Link sẽ xuất hiện ở đây..."></textarea>
-
-            </div>
-
-            <button
-                class="copy-btn"
-                onclick="copyLink()">
-
-                COPY LINK
-
-            </button>
-
-        </div>
+        </section>
 
         <!-- Guide -->
 
-        <div class="guide">
+        <section class="guide">
 
-            <div class="guide-header">
+            <h2>Hướng dẫn sử dụng</h2>
 
-                <h3>
+            <div class="steps">
 
-                    👉 Hướng dẫn sử dụng
+                <div class="step">
 
-                </h3>
+                    <span>1</span>
 
-                <p>
-
-                    Chỉ với 3 bước
-
-                </p>
-
-            </div>
-
-            <div class="guide-item">
-
-                <div class="number">
-
-                    1
+                    <p>Dán link Shopee</p>
 
                 </div>
 
-                <div>
+                <div class="step">
 
-                    <strong>Copy link sản phẩm Shopee</strong>
+                    <span>2</span>
 
-                    <p>Dán vào ô phía trên.</p>
+                    <p>Nhấn Chuyển đổi</p>
+
+                </div>
+
+                <div class="step">
+
+                    <span>3</span>
+
+                    <p>Copy và chia sẻ</p>
 
                 </div>
 
             </div>
 
-            <div class="guide-item">
+        </section>
 
-                <div class="number">
+        <!-- Footer -->
 
-                    2
+        <footer>
 
-                </div>
+            © 2026 NhanLink
 
-                <div>
+        </footer>
 
-                    <strong>Nhấn "CHUYỂN ĐỔI LINK"</strong>
+    </main>
 
-                    <p>Hệ thống sẽ tạo Affiliate Link.</p>
-
-                </div>
-
-            </div>
-
-            <div class="guide-item">
-
-                <div class="number">
-
-                    3
-
-                </div>
-
-                <div>
-
-                    <strong>Copy Affiliate Link</strong>
-
-                    <p>Chia sẻ cho mọi người.</p>
-
-                </div>
-
-            </div>
-
-            <div class="note">
-
-                ⚠ Sau này khi tích hợp API Shopee, link sẽ tự chuyển thành Affiliate Link.
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="toast">
-
-        Đã copy thành công
-
-    </div>
+    <div id="toast"></div>
 
     <script src="script.js"></script>
 

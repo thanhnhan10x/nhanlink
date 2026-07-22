@@ -1,273 +1,94 @@
-// =====================================
-// NHANLINK V1.0
-// script.js
-// =====================================
-
 const input = document.getElementById("link");
 const result = document.getElementById("result");
-const convertBtn = document.querySelector(".convert-btn");
+const loading = document.getElementById("loading");
 const toast = document.getElementById("toast");
-
-/* ===========================
-   TẠO LINK
-=========================== */
 
 async function createLink() {
 
     const link = input.value.trim();
 
     if (link === "") {
-
         showToast("Vui lòng nhập link Shopee");
-
-        input.focus();
-
         return;
-
     }
 
     if (!isShopeeLink(link)) {
-
         showToast("Đây không phải link Shopee");
-
         return;
-
     }
 
-    setLoading(true);
+    loading.style.display = "flex";
+    result.value = "Đang chuyển đổi...";
 
-    let formData = new FormData();
-
+    const formData = new FormData();
     formData.append("link", link);
 
     try {
 
         const response = await fetch("api/create-link.php", {
-
             method: "POST",
-
             body: formData
-
         });
 
         const data = await response.json();
 
         if (data.status === "success") {
-
             result.value = data.affiliateLink;
-
-            autoResize();
-
-            showToast("Tạo link thành công");
-
+            showToast("Chuyển đổi thành công");
         } else {
-
             result.value = "";
-
             showToast(data.message);
-
         }
 
-    }
-
-    catch (error) {
-
-        console.log(error);
-
+    } catch (e) {
+        result.value = "";
         showToast("Không thể kết nối máy chủ");
-
     }
 
-    setLoading(false);
-
+    loading.style.display = "none";
 }
 
-/* ===========================
-   COPY
-=========================== */
-
-async function copyLink() {
+function copyLink() {
 
     if (result.value.trim() === "") {
-
         showToast("Chưa có link để copy");
-
         return;
-
     }
 
-    try {
-
-        await navigator.clipboard.writeText(result.value);
-
-        showToast("Đã copy thành công");
-
-    }
-
-    catch {
-
-        result.select();
-
-        document.execCommand("copy");
-
-        showToast("Đã copy");
-
-    }
-
+    navigator.clipboard.writeText(result.value);
+    showToast("Đã copy vào clipboard");
 }
 
-/* ===========================
-   DÁN TỪ CLIPBOARD
-=========================== */
+function openLink() {
 
-async function pasteClipboard() {
+    const link = result.value.trim();
 
-    try {
-
-        const text = await navigator.clipboard.readText();
-
-        input.value = text;
-
-        input.focus();
-
-        showToast("Đã dán");
-
+    if (link === "") {
+        showToast("Chưa có link để mở");
+        return;
     }
 
-    catch {
-
-        showToast("Trình duyệt không cho phép");
-
-    }
-
+    window.open(link, "_blank");
 }
-
-/* ===========================
-   KIỂM TRA LINK
-=========================== */
 
 function isShopeeLink(link) {
-
-    return (
-
-        link.includes("shopee.vn") ||
-
-        link.includes("s.shopee.vn")
-
-    );
-
+    return link.includes("shopee.vn") || link.includes("s.shopee.vn");
 }
-
-/* ===========================
-   LOADING
-=========================== */
-
-function setLoading(status) {
-
-    if (status) {
-
-        convertBtn.classList.add("loading");
-
-        convertBtn.disabled = true;
-
-        convertBtn.innerHTML = "";
-
-    } else {
-
-        convertBtn.classList.remove("loading");
-
-        convertBtn.disabled = false;
-
-        convertBtn.innerHTML = "CHUYỂN ĐỔI LINK";
-
-    }
-
-}
-
-/* ===========================
-   TOAST
-=========================== */
 
 function showToast(message) {
 
-    toast.innerHTML = message;
-
+    toast.innerText = message;
     toast.classList.add("show");
 
     clearTimeout(window.toastTimer);
 
     window.toastTimer = setTimeout(() => {
-
         toast.classList.remove("show");
-
     }, 2200);
-
 }
 
-/* ===========================
-   TEXTAREA AUTO HEIGHT
-=========================== */
-
-function autoResize() {
-
-    result.style.height = "auto";
-
-    result.style.height = result.scrollHeight + "px";
-
-}
-
-/* ===========================
-   ENTER
-=========================== */
-
-input.addEventListener("keydown", function (e) {
-
+input.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
-
-        e.preventDefault();
-
         createLink();
-
     }
-
 });
-
-/* ===========================
-   DÁN TỰ ĐỘNG
-=========================== */
-
-window.addEventListener("paste", function (e) {
-
-    if (document.activeElement === input) return;
-
-    const text = e.clipboardData.getData("text");
-
-    if (isShopeeLink(text)) {
-
-        input.value = text;
-
-    }
-
-});
-
-/* ===========================
-   XÓA KẾT QUẢ KHI NHẬP MỚI
-=========================== */
-
-input.addEventListener("input", function () {
-
-    result.value = "";
-
-    autoResize();
-
-});
-
-/* ===========================
-   FOCUS
-=========================== */
-
-window.onload = function () {
-
-    input.focus();
-
-};
