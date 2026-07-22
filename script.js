@@ -1,94 +1,227 @@
+/* =====================================
+   NHANLINK V2
+===================================== */
+
 const input = document.getElementById("link");
 const result = document.getElementById("result");
 const loading = document.getElementById("loading");
 const toast = document.getElementById("toast");
 
-async function createLink() {
+let affiliateLink = "";
 
-    const link = input.value.trim();
+/* ==============================
+   Kiểm tra link Shopee
+============================== */
 
-    if (link === "") {
-        showToast("Vui lòng nhập link Shopee");
-        return;
-    }
+function isShopeeLink(url) {
 
-    if (!isShopeeLink(link)) {
-        showToast("Đây không phải link Shopee");
-        return;
-    }
+    const domains = [
+        "shopee.vn",
+        "shp.ee",
+        "vn.shp.ee"
+    ];
 
-    loading.style.display = "flex";
-    result.value = "Đang chuyển đổi...";
+    return domains.some(domain => url.includes(domain));
 
-    const formData = new FormData();
-    formData.append("link", link);
+}
 
-    try {
+/* ==============================
+   Loading
+============================== */
 
-        const response = await fetch("api/create-link.php", {
-            method: "POST",
-            body: formData
-        });
+function showLoading() {
 
-        const data = await response.json();
+    loading.style.display = "block";
 
-        if (data.status === "success") {
-            result.value = data.affiliateLink;
-            showToast("Chuyển đổi thành công");
-        } else {
-            result.value = "";
-            showToast(data.message);
-        }
+}
 
-    } catch (e) {
-        result.value = "";
-        showToast("Không thể kết nối máy chủ");
-    }
+function hideLoading() {
 
     loading.style.display = "none";
+
 }
 
-function copyLink() {
-
-    if (result.value.trim() === "") {
-        showToast("Chưa có link để copy");
-        return;
-    }
-
-    navigator.clipboard.writeText(result.value);
-    showToast("Đã copy vào clipboard");
-}
-
-function openLink() {
-
-    const link = result.value.trim();
-
-    if (link === "") {
-        showToast("Chưa có link để mở");
-        return;
-    }
-
-    window.open(link, "_blank");
-}
-
-function isShopeeLink(link) {
-    return link.includes("shopee.vn") || link.includes("s.shopee.vn");
-}
+/* ==============================
+   Toast
+============================== */
 
 function showToast(message) {
 
-    toast.innerText = message;
+    toast.innerHTML = message;
+
     toast.classList.add("show");
 
-    clearTimeout(window.toastTimer);
+    setTimeout(() => {
 
-    window.toastTimer = setTimeout(() => {
         toast.classList.remove("show");
-    }, 2200);
+
+    }, 2500);
+
 }
 
-input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        createLink();
+/* ==============================
+   Demo chuyển đổi
+   Sau này chỉ sửa hàm này
+============================== */
+
+async function convertAffiliateLink(url) {
+
+    return new Promise(resolve => {
+
+        setTimeout(() => {
+
+            resolve(url);
+
+        }, 1200);
+
+    });
+
+}
+
+/* ==============================
+   Chuyển đổi
+============================== */
+
+async function createLink() {
+
+    const url = input.value.trim();
+
+    if (url === "") {
+
+        showToast("Vui lòng nhập link.");
+
+        input.focus();
+
+        return;
+
     }
+
+    if (!isShopeeLink(url)) {
+
+        showToast("Đây không phải link Shopee.");
+
+        input.focus();
+
+        return;
+
+    }
+
+    showLoading();
+
+    affiliateLink = await convertAffiliateLink(url);
+
+    hideLoading();
+
+    result.value = affiliateLink;
+
+    showToast("Chuyển đổi thành công.");
+
+}
+
+/* ==============================
+   Copy
+============================== */
+
+async function copyLink() {
+
+    if (result.value === "") {
+
+        showToast("Chưa có link.");
+
+        return;
+
+    }
+
+    try {
+
+        await navigator.clipboard.writeText(result.value);
+
+        showToast("Đã copy.");
+
+    }
+
+    catch {
+
+        result.select();
+
+        document.execCommand("copy");
+
+        showToast("Đã copy.");
+
+    }
+
+}
+
+/* ==============================
+   Mở link
+============================== */
+
+function openLink() {
+
+    if (result.value === "") {
+
+        showToast("Chưa có link.");
+
+        return;
+
+    }
+
+    window.open(result.value, "_blank");
+
+}
+
+/* ==============================
+   Enter
+============================== */
+
+input.addEventListener("keydown", function (e) {
+
+    if (e.key === "Enter") {
+
+        createLink();
+
+    }
+
 });
+
+/* ==============================
+   Paste tự động
+============================== */
+
+input.addEventListener("paste", function () {
+
+    setTimeout(() => {
+
+        const value = input.value.trim();
+
+        if (isShopeeLink(value)) {
+
+            showToast("Đã nhận diện link Shopee.");
+
+        }
+
+    }, 200);
+
+});
+
+/* ==============================
+   Auto resize textarea
+============================== */
+
+result.addEventListener("input", function () {
+
+    this.style.height = "auto";
+
+    this.style.height = this.scrollHeight + "px";
+
+});
+
+/* ==============================
+   Khởi tạo
+============================== */
+
+window.onload = function () {
+
+    hideLoading();
+
+};
