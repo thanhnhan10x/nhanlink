@@ -1,6 +1,6 @@
-/* =====================================
-   NHANLINK V2
-===================================== */
+/* ==========================================
+   NHANLINK V3
+========================================== */
 
 const input = document.getElementById("link");
 const result = document.getElementById("result");
@@ -9,41 +9,21 @@ const toast = document.getElementById("toast");
 
 let affiliateLink = "";
 
-/* ==============================
-   Kiểm tra link Shopee
-============================== */
-
-function isShopeeLink(url) {
-
-    const domains = [
-        "shopee.vn",
-        "shp.ee",
-        "vn.shp.ee"
-    ];
-
-    return domains.some(domain => url.includes(domain));
-
-}
-
-/* ==============================
+/* ==========================================
    Loading
-============================== */
+========================================== */
 
 function showLoading() {
-
-    loading.style.display = "block";
-
+    loading.classList.remove("d-none");
 }
 
 function hideLoading() {
-
-    loading.style.display = "none";
-
+    loading.classList.add("d-none");
 }
 
-/* ==============================
+/* ==========================================
    Toast
-============================== */
+========================================== */
 
 function showToast(message) {
 
@@ -59,10 +39,30 @@ function showToast(message) {
 
 }
 
-/* ==============================
-   Demo chuyển đổi
+/* ==========================================
+   Kiểm tra link Shopee
+========================================== */
+
+function isShopeeLink(url) {
+
+    const domains = [
+
+        "shopee.vn",
+
+        "shp.ee",
+
+        "vn.shp.ee"
+
+    ];
+
+    return domains.some(domain => url.includes(domain));
+
+}
+
+/* ==========================================
+   Demo API
    Sau này chỉ sửa hàm này
-============================== */
+========================================== */
 
 async function convertAffiliateLink(url) {
 
@@ -78,9 +78,9 @@ async function convertAffiliateLink(url) {
 
 }
 
-/* ==============================
+/* ==========================================
    Chuyển đổi
-============================== */
+========================================== */
 
 async function createLink() {
 
@@ -88,7 +88,7 @@ async function createLink() {
 
     if (url === "") {
 
-        showToast("Vui lòng nhập link.");
+        showToast("Vui lòng nhập link Shopee.");
 
         input.focus();
 
@@ -98,7 +98,7 @@ async function createLink() {
 
     if (!isShopeeLink(url)) {
 
-        showToast("Đây không phải link Shopee.");
+        showToast("Link không hợp lệ.");
 
         input.focus();
 
@@ -108,19 +108,33 @@ async function createLink() {
 
     showLoading();
 
-    affiliateLink = await convertAffiliateLink(url);
+    try {
 
-    hideLoading();
+        affiliateLink = await convertAffiliateLink(url);
 
-    result.value = affiliateLink;
+        result.value = affiliateLink;
 
-    showToast("Chuyển đổi thành công.");
+        showToast("Tạo Affiliate Link thành công.");
+
+    }
+
+    catch (e) {
+
+        showToast("Có lỗi xảy ra.");
+
+    }
+
+    finally {
+
+        hideLoading();
+
+    }
 
 }
 
-/* ==============================
+/* ==========================================
    Copy
-============================== */
+========================================== */
 
 async function copyLink() {
 
@@ -152,9 +166,9 @@ async function copyLink() {
 
 }
 
-/* ==============================
+/* ==========================================
    Mở link
-============================== */
+========================================== */
 
 function openLink() {
 
@@ -170,13 +184,13 @@ function openLink() {
 
 }
 
-/* ==============================
+/* ==========================================
    Enter
-============================== */
+========================================== */
 
-input.addEventListener("keydown", function (e) {
+input.addEventListener("keydown", function(e){
 
-    if (e.key === "Enter") {
+    if(e.key==="Enter"){
 
         createLink();
 
@@ -184,43 +198,41 @@ input.addEventListener("keydown", function (e) {
 
 });
 
-/* ==============================
-   Paste tự động
-============================== */
+/* ==========================================
+   Paste
+========================================== */
 
-input.addEventListener("paste", function () {
+input.addEventListener("paste",function(){
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
-        const value = input.value.trim();
-
-        if (isShopeeLink(value)) {
+        if(isShopeeLink(input.value)){
 
             showToast("Đã nhận diện link Shopee.");
 
         }
 
-    }, 200);
+    },200);
 
 });
 
-/* ==============================
-   Auto resize textarea
-============================== */
+/* ==========================================
+   Auto Height
+========================================== */
 
-result.addEventListener("input", function () {
+result.addEventListener("input",function(){
 
-    this.style.height = "auto";
+    this.style.height="auto";
 
-    this.style.height = this.scrollHeight + "px";
+    this.style.height=this.scrollHeight+"px";
 
 });
 
-/* ==============================
-   Khởi tạo
-============================== */
+/* ==========================================
+   Init
+========================================== */
 
-window.onload = function () {
+window.onload=function(){
 
     hideLoading();
 

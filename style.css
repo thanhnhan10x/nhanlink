@@ -1,43 +1,53 @@
-/* ===========================
-   NHANLINK V2 - STYLE PART 1
-=========================== */
+/* =====================================
+   NHANLINK V3
+===================================== */
 
 :root{
-    --primary:#ee4d2d;
-    --primary-hover:#d84323;
-    --dark:#222;
-    --gray:#6c757d;
-    --light:#f6f8fb;
-    --white:#ffffff;
-    --border:#e9ecef;
-    --success:#198754;
 
-    --shadow:0 15px 40px rgba(0,0,0,.08);
+    --primary:#ee4d2d;
+    --primary-hover:#d73211;
+
+    --success:#16a34a;
+
+    --bg:#f5f7fb;
+
+    --white:#fff;
+
+    --text:#202124;
+
+    --gray:#666;
+
+    --border:#e8e8e8;
+
     --radius:22px;
-    --transition:.3s ease;
+
+    --shadow:0 15px 35px rgba(0,0,0,.08);
+
 }
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 body{
 
     font-family:'Be Vietnam Pro',sans-serif;
 
-    background:var(--light);
+    background:var(--bg);
 
-    color:var(--dark);
-
-    min-height:100vh;
-
-    position:relative;
+    color:var(--text);
 
     overflow-x:hidden;
 
@@ -51,12 +61,15 @@ body{
 
     inset:0;
 
-    background:
-    radial-gradient(circle at top left,#ffe9dd 0%,transparent 35%),
-    radial-gradient(circle at bottom right,#fff2d9 0%,transparent 40%),
-    #f6f8fb;
+    z-index:-1;
 
-    z-index:-2;
+    background:
+
+    radial-gradient(circle at top left,#ffe8dc 0%,transparent 40%),
+
+    radial-gradient(circle at bottom right,#fff1d5 0%,transparent 40%),
+
+    #f5f7fb;
 
 }
 
@@ -64,7 +77,7 @@ body{
 
 .container{
 
-    max-width:1100px;
+    max-width:1050px;
 
 }
 
@@ -80,19 +93,31 @@ body{
 
     border-radius:50%;
 
-    background:linear-gradient(135deg,#ff6b3d,#ee4d2d);
-
-    color:#fff;
-
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
+    background:linear-gradient(135deg,#ff6b3d,#ee4d2d);
+
+    color:#fff;
+
     font-size:42px;
 
-    box-shadow:0 20px 35px rgba(238,77,45,.35);
+    box-shadow:0 18px 35px rgba(238,77,45,.35);
+
+    animation:float 3s ease infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-8px);}
+
+100%{transform:translateY(0);}
 
 }
 
@@ -101,8 +126,6 @@ h1{
     font-size:42px;
 
     font-weight:700;
-
-    margin-top:20px;
 
 }
 
@@ -116,21 +139,21 @@ h1{
 
 .card{
 
-    border:none !important;
+    border:none!important;
 
-    border-radius:var(--radius)!important;
+    border-radius:24px!important;
 
     box-shadow:var(--shadow)!important;
 
     overflow:hidden;
 
-    transition:var(--transition);
+    transition:.35s;
 
 }
 
 .card:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
 }
 
@@ -140,17 +163,13 @@ h1{
 
 }
 
-/* Label */
+/* Form */
 
 .form-label{
 
     font-weight:600;
 
-    margin-bottom:10px;
-
 }
-
-/* Input */
 
 .input-group{
 
@@ -164,25 +183,29 @@ h1{
 
     background:#fff;
 
-    border:1px solid var(--border);
-
     border-right:none;
 
     color:var(--primary);
-
-    font-size:20px;
 
 }
 
 .form-control{
 
-    border:1px solid var(--border);
-
-    font-size:16px;
+    border-color:var(--border);
 
     padding:15px;
 
+    font-size:16px;
+
     box-shadow:none!important;
+
+    transition:.3s;
+
+}
+
+.form-control:hover{
+
+    border-color:#ff9b84;
 
 }
 
@@ -192,7 +215,7 @@ h1{
 
 }
 
-textarea.form-control{
+textarea{
 
     resize:none;
 
@@ -200,21 +223,21 @@ textarea.form-control{
 
 }
 
-/* Button */
+/* Buttons */
 
 .btn{
 
-    transition:var(--transition);
-
     border-radius:15px;
+
+    transition:.3s;
 
     font-weight:600;
 
 }
 
-.btn-lg{
+.btn:hover{
 
-    padding:15px;
+    transform:translateY(-3px);
 
 }
 
@@ -232,42 +255,10 @@ textarea.form-control{
 
     color:#fff;
 
-    transform:translateY(-2px);
-
 }
-
-.btn-success{
-
-    border-radius:15px;
-
-}
-
-.btn-outline-secondary{
-
-    border-radius:15px;
-
-}
-
-/* Loading */
-
-#loading{
-
-    display:none;
-
-}
-
-.spinner-border{
-
-    width:3rem;
-
-    height:3rem;
-
-}
-/* ===========================
-   NHANLINK V2 - STYLE PART 2
-=========================== */
-
-/* ===== Result ===== */
+/* =====================================
+   RESULT
+===================================== */
 
 #result{
 
@@ -285,33 +276,35 @@ textarea.form-control{
 
 }
 
-/* ===== Guide ===== */
+/* =====================================
+   GUIDE
+===================================== */
 
 .step-box{
 
     background:#fff;
 
-    border:1px solid #eee;
+    border:1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:18px;
 
-    padding:30px 20px;
+    padding:22px 15px;
 
     text-align:center;
 
-    transition:.3s;
-
     height:100%;
 
-    position:relative;
+    transition:.3s;
 
 }
 
 .step-box:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 
-    box-shadow:0 20px 40px rgba(0,0,0,.08);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+    border-color:var(--primary);
 
 }
 
@@ -323,15 +316,7 @@ textarea.form-control{
 
     margin:auto;
 
-    margin-bottom:18px;
-
     border-radius:50%;
-
-    background:var(--primary);
-
-    color:#fff;
-
-    font-weight:700;
 
     display:flex;
 
@@ -339,39 +324,53 @@ textarea.form-control{
 
     justify-content:center;
 
-}
+    background:var(--primary);
 
-.step-icon{
+    color:#fff;
 
-    font-size:42px;
+    font-weight:700;
 
-    color:var(--primary);
+    font-size:17px;
 
     margin-bottom:15px;
 
 }
 
+.step-icon{
+
+    font-size:38px;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
 .step-box h5{
 
-    margin-top:10px;
+    font-size:20px;
 
     font-weight:700;
+
+    margin-bottom:10px;
 
 }
 
 .step-box p{
 
-    margin-top:10px;
+    font-size:14px;
 
-    color:var(--gray);
+    color:#777;
 
-    font-size:15px;
+    line-height:1.6;
 
-    line-height:1.7;
+    margin:0;
 
 }
 
-/* ===== Accordion ===== */
+/* =====================================
+   FAQ
+===================================== */
 
 .accordion{
 
@@ -389,9 +388,15 @@ textarea.form-control{
 
 }
 
+.accordion-item:last-child{
+
+    border-bottom:none;
+
+}
+
 .accordion-button{
 
-    padding:22px;
+    padding:20px;
 
     font-weight:600;
 
@@ -409,21 +414,23 @@ textarea.form-control{
 
 .accordion-body{
 
-    padding:20px;
+    padding:18px 20px;
 
     color:#666;
 
-    line-height:1.8;
+    line-height:1.7;
 
 }
 
-/* ===== Footer ===== */
+/* =====================================
+   FOOTER
+===================================== */
 
 footer{
 
-    margin-top:80px;
+    margin-top:60px;
 
-    padding:40px 0;
+    padding-bottom:30px;
 
 }
 
@@ -435,8 +442,6 @@ footer h5{
 
 footer p{
 
-    margin:10px 0;
-
     color:#777;
 
 }
@@ -447,21 +452,23 @@ footer small{
 
 }
 
-/* ===== Toast ===== */
+/* =====================================
+   TOAST
+===================================== */
 
 #toast{
 
     position:fixed;
 
-    right:30px;
+    bottom:25px;
 
-    bottom:30px;
+    right:25px;
 
     background:#222;
 
     color:#fff;
 
-    padding:15px 22px;
+    padding:14px 22px;
 
     border-radius:12px;
 
@@ -487,63 +494,248 @@ footer small{
 
 }
 
-/* ===== Animation ===== */
+/* =====================================
+   LOADING
+===================================== */
+
+#loading{
+
+    display:none;
+
+}
+
+.spinner-border{
+
+    width:3rem;
+
+    height:3rem;
+
+}
+
+/* =====================================
+   FADE
+===================================== */
 
 .card{
 
-    animation:fadeUp .6s ease;
+    animation:fadeUp .5s ease;
 
 }
 
 @keyframes fadeUp{
 
-    from{
+from{
 
-        opacity:0;
+opacity:0;
 
-        transform:translateY(30px);
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/* =====================================
+   RESPONSIVE TABLET
+===================================== */
+
+@media (max-width:991px){
+
+    .container{
+        max-width:760px;
+    }
+
+    .card-body{
+        padding:30px;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    .logo-circle{
+        width:75px;
+        height:75px;
+        font-size:34px;
+    }
+
+    .btn-lg{
+        padding:14px;
+    }
+
+    .step-box{
+        padding:18px 12px;
+    }
+
+    .step-icon{
+        font-size:30px;
+    }
+
+    .step-box h5{
+        font-size:17px;
+    }
+
+    .step-box p{
+        font-size:13px;
+    }
+
+}
+
+/* =====================================
+   RESPONSIVE MOBILE
+===================================== */
+
+@media (max-width:576px){
+
+    .container{
+
+        padding-left:16px;
+
+        padding-right:16px;
 
     }
 
-    to{
+    h1{
 
-        opacity:1;
+        font-size:28px;
 
-        transform:translateY(0);
+    }
+
+    .text-secondary{
+
+        font-size:15px;
+
+    }
+
+    .card-body{
+
+        padding:22px;
+
+    }
+
+    .logo-circle{
+
+        width:65px;
+
+        height:65px;
+
+        font-size:28px;
+
+    }
+
+    .input-group-text{
+
+        padding:12px;
+
+    }
+
+    .form-control{
+
+        padding:12px;
+
+        font-size:15px;
+
+    }
+
+    textarea{
+
+        min-height:120px;
+
+    }
+
+    .btn-lg{
+
+        padding:13px;
+
+        font-size:15px;
+
+    }
+
+    /* Guide */
+
+    .step-box{
+
+        padding:14px 8px;
+
+    }
+
+    .step-number{
+
+        width:32px;
+
+        height:32px;
+
+        font-size:14px;
+
+        margin-bottom:10px;
+
+    }
+
+    .step-icon{
+
+        font-size:22px;
+
+        margin-bottom:8px;
+
+    }
+
+    .step-box h5{
+
+        font-size:14px;
+
+        margin-bottom:0;
+
+    }
+
+    .step-box p{
+
+        display:none;
+
+    }
+
+    footer{
+
+        margin-top:40px;
+
+    }
+
+    #toast{
+
+        left:15px;
+
+        right:15px;
+
+        bottom:20px;
+
+        text-align:center;
 
     }
 
 }
 
-.logo-circle{
+/* =====================================
+   LARGE DESKTOP
+===================================== */
 
-    animation:float 3s ease-in-out infinite;
+@media (min-width:1400px){
 
-}
+    .container{
 
-@keyframes float{
-
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-8px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
+        max-width:1180px;
 
     }
 
 }
 
-/* ===== Scrollbar ===== */
+/* =====================================
+   SCROLLBAR
+===================================== */
 
 ::-webkit-scrollbar{
 
@@ -551,9 +743,15 @@ footer small{
 
 }
 
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
 ::-webkit-scrollbar-thumb{
 
-    background:#d6d6d6;
+    background:#d5d5d5;
 
     border-radius:20px;
 
@@ -565,7 +763,9 @@ footer small{
 
 }
 
-/* ===== Selection ===== */
+/* =====================================
+   TEXT SELECTION
+===================================== */
 
 ::selection{
 
@@ -574,320 +774,272 @@ footer small{
     color:#fff;
 
 }
-/* ===========================
-   NHANLINK V2 - STYLE PART 3
-=========================== */
 
-/* ==========================
-   Button Effect
-========================== */
+/* =====================================
+   SMOOTH
+===================================== */
 
-.btn{
+html{
 
-    transition:all .3s ease;
+    scroll-behavior:smooth;
 
 }
 
-.btn:hover{
+img{
 
-    transform:translateY(-3px);
+    max-width:100%;
 
-    box-shadow:0 12px 25px rgba(0,0,0,.12);
-
-}
-
-.btn:active{
-
-    transform:scale(.97);
+    height:auto;
 
 }
 
-/* ==========================
-   Card Hover
-========================== */
+button{
 
-.card{
-
-    position:relative;
+    outline:none;
 
 }
 
-.card::after{
+textarea:focus,
 
-    content:"";
+input:focus{
 
-    position:absolute;
-
-    inset:0;
-
-    border-radius:24px;
-
-    pointer-events:none;
-
-    transition:.3s;
+    outline:none;
 
 }
-
-.card:hover::after{
-
-    box-shadow:0 25px 60px rgba(238,77,45,.08);
-
-}
-
-/* ==========================
-   Input
-========================== */
-
-.form-control{
-
-    transition:.3s;
-
-}
-
-.form-control:hover{
-
-    border-color:#ff9b84;
-
-}
-
-.form-control:focus{
-
-    transform:scale(1.01);
-
-}
-
-/* ==========================
-   Mobile
-========================== */
-
-@media(max-width:991px){
-
-.card-body{
-
-padding:30px;
-
-}
-
-h1{
-
-font-size:34px;
-
-}
-
-.logo-circle{
-
-width:75px;
-
-height:75px;
-
-font-size:34px;
-
-}
-
-.btn-lg{
-
-padding:14px;
-
-}
-
-.step-box{
-
-margin-bottom:20px;
-
-}
-
-}
-
-/* ==========================
-   Phone
-========================== */
-
-@media(max-width:576px){
-
-.container{
-
-padding-left:18px;
-
-padding-right:18px;
-
-}
-
-.card-body{
-
-padding:22px;
-
-}
-
-h1{
-
-font-size:30px;
-
-}
-
-.text-secondary{
-
-font-size:15px;
-
-}
-
-.logo-circle{
-
-width:65px;
-
-height:65px;
-
-font-size:30px;
-
-}
-
-.input-group-lg>.form-control{
-
-font-size:15px;
-
-}
-
-textarea{
-
-font-size:14px;
-
-}
-
-.step-box{
-
-padding:25px 18px;
-
-}
-
-footer{
-
-margin-top:50px;
-
-}
-
-#toast{
-
-left:15px;
-
-right:15px;
-
-bottom:20px;
-
-text-align:center;
-
-}
-
-}
-
-/* ==========================
-   Desktop Large
-========================== */
-
-@media(min-width:1400px){
-
-.container{
-
-max-width:1180px;
-
-}
-
-}
-
-/* ==========================
-   Dark Mode (Future)
-========================== */
+/* =====================================
+   DARK MODE (Future)
+===================================== */
 
 body.dark{
 
-background:#121212;
+    background:#121212;
 
-color:#eee;
+    color:#f5f5f5;
+
+}
+
+body.dark .bg-gradient{
+
+    background:#121212;
 
 }
 
 body.dark .card{
 
-background:#1f1f1f;
+    background:#1f1f1f;
 
-color:#fff;
+    color:#fff;
 
 }
 
 body.dark .form-control{
 
-background:#2a2a2a;
+    background:#2b2b2b;
 
-border-color:#333;
+    color:#fff;
 
-color:#fff;
+    border-color:#3d3d3d;
 
 }
 
-body.dark textarea{
+body.dark .input-group-text{
 
-background:#2a2a2a;
+    background:#2b2b2b;
 
-color:#fff;
+    color:var(--primary);
+
+    border-color:#3d3d3d;
+
+}
+
+body.dark #result{
+
+    background:#2b2b2b;
+
+    color:#fff;
 
 }
 
 body.dark .step-box{
 
-background:#252525;
+    background:#242424;
 
-border-color:#333;
-
-}
-
-body.dark footer{
-
-color:#bbb;
+    border-color:#333;
 
 }
 
-/* ==========================
-   Smooth Fade
-========================== */
+body.dark .accordion-item{
 
-.fade-in{
-
-animation:fade .6s ease;
+    background:#1f1f1f;
 
 }
 
-@keyframes fade{
+body.dark .accordion-button{
 
-from{
+    background:#1f1f1f;
 
-opacity:0;
-
-}
-
-to{
-
-opacity:1;
+    color:#fff;
 
 }
 
+body.dark .accordion-button:not(.collapsed){
+
+    background:#2a2a2a;
+
 }
 
-/* ==========================
-   Utility
-========================== */
+body.dark .accordion-body{
+
+    background:#1f1f1f;
+
+    color:#d7d7d7;
+
+}
+
+body.dark footer p,
+
+body.dark footer small{
+
+    color:#bdbdbd;
+
+}
+
+/* =====================================
+   EFFECT
+===================================== */
+
+.shadow-hover{
+
+    transition:.3s;
+
+}
+
+.shadow-hover:hover{
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.scale{
+
+    transition:.3s;
+
+}
+
+.scale:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* =====================================
+   UTILITIES
+===================================== */
 
 .text-primary{
 
-color:var(--primary)!important;
+    color:var(--primary)!important;
 
 }
 
-.rounded-4{
+.bg-primary{
 
-border-radius:24px!important;
+    background:var(--primary)!important;
 
 }
 
-.shadow-lg{
+.rounded-xl{
 
-box-shadow:0 20px 50px rgba(0,0,0,.08)!important;
+    border-radius:24px!important;
+
+}
+
+.cursor-pointer{
+
+    cursor:pointer;
+
+}
+
+.fw-600{
+
+    font-weight:600;
+
+}
+
+.fw-700{
+
+    font-weight:700;
+
+}
+
+/* =====================================
+   PRINT
+===================================== */
+
+@media print{
+
+    .btn,
+
+    footer,
+
+    #toast,
+
+    #loading{
+
+        display:none!important;
+
+    }
+
+    body{
+
+        background:#fff;
+
+    }
+
+    .card{
+
+        box-shadow:none!important;
+
+        border:1px solid #ddd!important;
+
+    }
+
+}
+
+/* =====================================
+   FINISH
+===================================== */
+
+a{
+
+    text-decoration:none;
+
+}
+
+img{
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+button{
+
+    outline:none;
+
+}
+
+input,
+
+textarea{
+
+    outline:none;
+
+}
+
+*{
+
+    -webkit-tap-highlight-color:transparent;
 
 }

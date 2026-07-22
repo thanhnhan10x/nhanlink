@@ -1,18 +1,11 @@
 <?php
 
-// ===============================
-// NHANLINK CONFIG
-// ===============================
+// Shopee Open API
 
-// Chưa có API
-define("SHOPEE_API_URL", "");
+define('SHOP_ID','');
 
-define("SHOPEE_API_KEY", "");
+define('PARTNER_ID','');
 
-define("SHOPEE_SECRET", "");
+define('PARTNER_KEY','');
 
-// Website
-
-define("SITE_NAME", "NhanLink");
-
-define("SITE_URL", "https://nhanlink.id.vn");
+define('REDIRECT_URL','');

@@ -3,35 +3,51 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NhanLink - Shopee Affiliate</title>
+    <title>NhanLink - Chuyển đổi Link Shopee Affiliate</title>
 
-<meta name="description" content="Công cụ chuyển đổi link Shopee Affiliate miễn phí.">
+    <meta name="description"
+        content="NhanLink - Công cụ chuyển đổi link Shopee Affiliate nhanh chóng, miễn phí và dễ sử dụng.">
 
-<link rel="icon" href="assets/favicon.ico">
+    <meta name="keywords"
+        content="Shopee Affiliate, Shopee, Affiliate Link, NhanLink">
 
-<!-- Bootstrap -->
+    <meta name="author"
+        content="NhanLink">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="theme-color"
+        content="#ee4d2d">
 
-<!-- Bootstrap Icons -->
+    <link rel="icon"
+        href="assets/favicon.ico">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap -->
 
-<!-- Google Font -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Bootstrap Icons -->
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+    <!-- Google Font -->
 
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="style.css">
 
 </head>
 
@@ -43,7 +59,7 @@ rel="stylesheet">
 
 <div class="row justify-content-center">
 
-<div class="col-lg-8">
+<div class="col-lg-9">
 
 <!-- Logo -->
 
@@ -55,7 +71,7 @@ rel="stylesheet">
 
 </div>
 
-<h1 class="fw-bold mt-3">
+<h1 class="mt-3">
 
 NhanLink
 
@@ -63,229 +79,199 @@ NhanLink
 
 <p class="text-secondary">
 
-Chuyển đổi link Shopee Affiliate nhanh chóng
+Chuyển đổi Link Shopee Affiliate nhanh chóng, miễn phí.
 
 </p>
 
 </div>
-<!-- Card -->
 
-<div class="card border-0 shadow-lg rounded-4">
+<!-- Converter -->
 
-    <div class="card-body p-4 p-lg-5">
+<div class="card">
 
-        <h4 class="fw-bold mb-4">
+<div class="card-body">
 
-            Chuyển đổi liên kết
+<h4 class="fw-bold mb-4">
 
-        </h4>
+Chuyển đổi liên kết
 
-        <div class="mb-3">
+</h4>
 
-            <label class="form-label fw-semibold">
+<div class="mb-3">
 
-                Link Shopee
+<label class="form-label">
 
-            </label>
+Link Shopee
 
-            <div class="input-group input-group-lg">
+</label>
 
-                <span class="input-group-text">
+<div class="input-group input-group-lg">
 
-                    <i class="bi bi-link-45deg"></i>
+<span class="input-group-text">
 
-                </span>
+<i class="bi bi-link-45deg"></i>
 
-                <input
-                    type="text"
-                    class="form-control"
-                    id="link"
-                    placeholder="https://shopee.vn/...">
+</span>
 
-            </div>
+<input
+type="text"
+class="form-control"
+id="link"
+placeholder="https://shopee.vn/...">
 
-        </div>
+</div>
 
-        <button
-            class="btn btn-shopee w-100 btn-lg"
-            onclick="createLink()">
+</div>
 
-            <i class="bi bi-arrow-repeat"></i>
+<button
+class="btn btn-shopee btn-lg w-100"
+onclick="createLink()">
 
-            Chuyển đổi ngay
+<i class="bi bi-arrow-repeat"></i>
 
-        </button>
+Chuyển đổi ngay
 
-        <div
-            id="loading"
-            class="text-center mt-4 d-none">
+</button>
 
-            <div
-                class="spinner-border text-danger"
-                role="status">
+<div
+id="loading"
+class="text-center mt-4">
 
-            </div>
+<div
+class="spinner-border text-danger">
 
-            <div class="mt-3">
+</div>
 
-                Đang chuyển đổi...
+<p class="mt-3">
 
-            </div>
+Đang chuyển đổi...
 
-        </div>
+</p>
 
-    </div>
+</div>
+
+</div>
 
 </div>
 
 <!-- Result -->
 
-<div class="card border-0 shadow-lg rounded-4 mt-4">
+<div class="card mt-4">
 
-    <div class="card-body">
+<div class="card-body">
 
-        <h5 class="fw-bold mb-3">
+<h4 class="fw-bold mb-3">
 
-            Kết quả
+Kết quả
 
-        </h5>
+</h4>
 
-        <textarea
+<textarea
 
-            id="result"
+id="result"
 
-            class="form-control"
+class="form-control"
 
-            rows="5"
+rows="5"
 
-            readonly
+readonly
 
-            placeholder="Link Affiliate sẽ hiển thị tại đây..."></textarea>
+placeholder="Affiliate Link sẽ xuất hiện tại đây...">
 
-        <div class="d-grid gap-2 d-md-flex mt-3">
+</textarea>
 
-            <button
+<div class="row mt-3 g-2">
 
-                class="btn btn-outline-secondary flex-fill"
+<div class="col-md-6">
 
-                onclick="copyLink()">
+<button
+class="btn btn-outline-secondary w-100"
+onclick="copyLink()">
 
-                <i class="bi bi-clipboard"></i>
+<i class="bi bi-clipboard"></i>
 
-                Copy
+Copy Link
 
-            </button>
+</button>
 
-            <button
+</div>
 
-                class="btn btn-success flex-fill"
+<div class="col-md-6">
 
-                onclick="openLink()">
+<button
+class="btn btn-success w-100"
+onclick="openLink()">
 
-                <i class="bi bi-bag-check"></i>
+<i class="bi bi-bag-check"></i>
 
-                Mua ngay
+Mua ngay
 
-            </button>
+</button>
 
-        </div>
+</div>
 
-    </div>
+</div>
+
+</div>
 
 </div>
 <!-- Guide -->
 
-<div class="card border-0 shadow-lg rounded-4 mt-4">
+<div class="card mt-4">
 
-    <div class="card-body p-4">
+    <div class="card-body">
 
-        <h4 class="fw-bold mb-4 text-center">
+        <h4 class="fw-bold text-center mb-4">
 
             Hướng dẫn sử dụng
 
         </h4>
 
-        <div class="row g-4">
+        <div class="row g-3">
 
-            <div class="col-md-4">
+            <div class="col-4">
 
                 <div class="step-box">
 
-                    <div class="step-number">
-
-                        1
-
-                    </div>
+                    <div class="step-number">1</div>
 
                     <i class="bi bi-link-45deg step-icon"></i>
 
-                    <h5>
+                    <h6>Dán link</h6>
 
-                        Dán link
-
-                    </h5>
-
-                    <p>
-
-                        Sao chép đường dẫn sản phẩm Shopee và dán vào ô phía trên.
-
-                    </p>
+                    <p>Sao chép link Shopee.</p>
 
                 </div>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-4">
 
                 <div class="step-box">
 
-                    <div class="step-number">
-
-                        2
-
-                    </div>
+                    <div class="step-number">2</div>
 
                     <i class="bi bi-arrow-repeat step-icon"></i>
 
-                    <h5>
+                    <h6>Chuyển đổi</h6>
 
-                        Chuyển đổi
-
-                    </h5>
-
-                    <p>
-
-                        Nhấn nút Chuyển đổi để hệ thống tạo Affiliate Link.
-
-                    </p>
+                    <p>Tạo Affiliate Link.</p>
 
                 </div>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-4">
 
                 <div class="step-box">
 
-                    <div class="step-number">
-
-                        3
-
-                    </div>
+                    <div class="step-number">3</div>
 
                     <i class="bi bi-share step-icon"></i>
 
-                    <h5>
+                    <h6>Chia sẻ</h6>
 
-                        Chia sẻ
-
-                    </h5>
-
-                    <p>
-
-                        Copy liên kết và chia sẻ để nhận hoa hồng từ Shopee.
-
-                    </p>
+                    <p>Nhận hoa hồng.</p>
 
                 </div>
 
@@ -299,9 +285,9 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
 <!-- FAQ -->
 
-<div class="card border-0 shadow-lg rounded-4 mt-4">
+<div class="card mt-4">
 
-    <div class="card-body p-4">
+    <div class="card-body">
 
         <h4 class="fw-bold mb-4">
 
@@ -315,10 +301,9 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
                 <h2 class="accordion-header">
 
-                    <button class="accordion-button"
-
+                    <button
+                        class="accordion-button"
                         data-bs-toggle="collapse"
-
                         data-bs-target="#faq1">
 
                         NhanLink có miễn phí không?
@@ -327,10 +312,9 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
                 </h2>
 
-                <div id="faq1"
-
+                <div
+                    id="faq1"
                     class="accordion-collapse collapse show"
-
                     data-bs-parent="#faq">
 
                     <div class="accordion-body">
@@ -347,10 +331,9 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
                 <h2 class="accordion-header">
 
-                    <button class="accordion-button collapsed"
-
+                    <button
+                        class="accordion-button collapsed"
                         data-bs-toggle="collapse"
-
                         data-bs-target="#faq2">
 
                         Có cần đăng nhập không?
@@ -359,15 +342,14 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
                 </h2>
 
-                <div id="faq2"
-
+                <div
+                    id="faq2"
                     class="accordion-collapse collapse"
-
                     data-bs-parent="#faq">
 
                     <div class="accordion-body">
 
-                        Hiện tại không cần tài khoản. Chỉ cần dán link Shopee.
+                        Không cần. Chỉ cần dán link Shopee.
 
                     </div>
 
@@ -379,22 +361,20 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
                 <h2 class="accordion-header">
 
-                    <button class="accordion-button collapsed"
-
+                    <button
+                        class="accordion-button collapsed"
                         data-bs-toggle="collapse"
-
                         data-bs-target="#faq3">
 
-                        Bao giờ chuyển được Affiliate Link?
+                        Bao giờ hoạt động thật?
 
                     </button>
 
                 </h2>
 
-                <div id="faq3"
-
+                <div
+                    id="faq3"
                     class="accordion-collapse collapse"
-
                     data-bs-parent="#faq">
 
                     <div class="accordion-body">
@@ -412,28 +392,89 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
     </div>
 
 </div>
-
 <!-- Footer -->
 
-<footer class="text-center mt-5 pb-4">
+<footer class="text-center mt-5">
 
-    <h5 class="fw-bold">
+    <div class="card">
 
-        NhanLink
+        <div class="card-body py-4">
 
-    </h5>
+            <h5 class="fw-bold mb-2">
 
-    <p class="text-muted">
+                NhanLink
 
-        Chuyển đổi link Shopee Affiliate nhanh chóng và miễn phí.
+            </h5>
 
-    </p>
+            <p class="text-secondary mb-3">
 
-    <small class="text-secondary">
+                Công cụ chuyển đổi Link Shopee Affiliate nhanh chóng, miễn phí và dễ sử dụng.
 
-        © 2026 NhanLink. All rights reserved.
+            </p>
 
-    </small>
+            <div class="row text-center mb-3">
+
+                <div class="col-4">
+
+                    <h5 class="text-primary fw-bold">
+
+                        100%
+
+                    </h5>
+
+                    <small>
+
+                        Miễn phí
+
+                    </small>
+
+                </div>
+
+                <div class="col-4">
+
+                    <h5 class="text-primary fw-bold">
+
+                        24/7
+
+                    </h5>
+
+                    <small>
+
+                        Hoạt động
+
+                    </small>
+
+                </div>
+
+                <div class="col-4">
+
+                    <h5 class="text-primary fw-bold">
+
+                        API
+
+                    </h5>
+
+                    <small>
+
+                        Shopee Ready
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <small class="text-muted">
+
+                © 2026 NhanLink. All Rights Reserved.
+
+            </small>
+
+        </div>
+
+    </div>
 
 </footer>
 
@@ -443,9 +484,15 @@ Chuyển đổi link Shopee Affiliate nhanh chóng
 
 </div>
 
+<!-- Toast -->
+
 <div id="toast"></div>
 
+<!-- Bootstrap -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script -->
 
 <script src="script.js"></script>
 
