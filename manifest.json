@@ -1,0 +1,8 @@
+{
+  "name": "NhanLink",
+  "short_name": "NhanLink",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ee4d2d"
+}
