@@ -237,3 +237,48 @@ window.onload=function(){
     hideLoading();
 
 };
+const names = [
+"Lan***",
+"Nam***",
+"Hùng***",
+"Linh***",
+"Minh***",
+"Tuấn***",
+"Hải***",
+"Trang***",
+"Thảo***",
+"Vy***",
+"An***",
+"Đức***"
+];
+
+const times = [
+"Vừa xong",
+"10 giây trước",
+"30 giây trước",
+"1 phút trước",
+"2 phút trước",
+"5 phút trước"
+];
+
+function showNotify(){
+
+    const box=document.getElementById("liveNotify");
+
+    document.getElementById("notifyName").innerHTML=
+        names[Math.floor(Math.random()*names.length)];
+
+    document.getElementById("notifyTime").innerHTML=
+        times[Math.floor(Math.random()*times.length)];
+
+    box.classList.add("show");
+
+    setTimeout(()=>{
+        box.classList.remove("show");
+    },4000);
+
+}
+
+showNotify();
+
+setInterval(showNotify,7000);
